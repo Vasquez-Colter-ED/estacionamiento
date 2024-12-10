@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#{bundle['backup.cuentasUsuario']}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<f:view contentType="text/html" locale="#{region.locale}">
+    <body>
+    <!-- Header -->
+    <ui:include src="WEB-INF/templates/header.xhtml"></ui:include>
+
+    <!-- Main Form Section with Margin -->
+    <div class="container mt-5">
+        <h:form>
+
+            <div class="container table-container">
+                <h1>#{bundle['backup.listaTrabajador']}</h1>
+
+                <!-- agregar el dataTable con styleClass="table table-striped table-bordered" -->
+                <h:dataTable styleClass="table table-striped table-bordered"
+                             value="#{operatorBean.trabajadores}" var="item">
+                    <h:column headerClass="table-dark" >
+                        <f:facet name="header">#{bundle['backup.nombres']}</f:facet>
+                        #{item.nombres}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.apellidos']}</f:facet>
+                        #{item.apellidos}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.edad']}</f:facet>
+                        #{item.edad}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.dni']}</f:facet>
+                        #{item.dni}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.telefono']}</f:facet>
+                        #{item.telefono}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.correo']}</f:facet>
+                        #{item.email}
+                    </h:column>
+                    <h:column headerClass="table-dark">
+                        <f:facet name="header">#{bundle['backup.turno']}</f:facet>
+                        #{item.turno}
+                    </h:column>
+
+                    <!-- Cerrar el dataTable -->
+                </h:dataTable>
+                <h:commandButton value="#{bundle['backup.edit']}" action="operator_edit" styleClass="px-4 py-2 bg-blue-500 text-black rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+
+            </div>
+
+        </h:form>
+    </div>
+    <ui:include src="WEB-INF/templates/footer.xhtml"></ui:include>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+</f:view>
+</html>

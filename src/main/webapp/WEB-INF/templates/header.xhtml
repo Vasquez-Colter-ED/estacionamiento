@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:insert name="header">
+   <div class="bg-primary text-white text-center py-4">
+      <h1>#{bundle['backup.secondtitle']}</h1>
+      <p>#{bundle['backup.session']}: #{dashboard.sessionId}</p>
+   </div>
+
+   <!-- Navigation (Updated for page redirection) -->
+   <div class="bg-dark text-white text-center py-2">
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.logout']}" action="#{dashboard.logout()}" />
+      </h:form>
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.start']}" action="dashboard.xhtml" />
+      </h:form>
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.report']}" action="report.xhtml" />
+      </h:form>
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.workers']}" action="worker.xhtml" />
+      </h:form>
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.discounts']}" action="calc.xhtml" />
+      </h:form>
+      <h:form styleClass="d-inline-block">
+         <h:commandLink styleClass="text-white mx-2" value="#{bundle['backup.operators']}" action="operator.xhtml" />
+      </h:form>
+   </div>
+
+</ui:insert>
+</html>
